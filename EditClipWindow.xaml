@@ -1,0 +1,37 @@
+<Window x:Class="ClipVault.EditClipWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Метки клипа · ClipVault" Width="545" Height="660" MinHeight="550" WindowStartupLocation="CenterOwner" ShowInTaskbar="False"
+        Background="{StaticResource PageBrush}" Foreground="{StaticResource TextBrush}">
+    <Border Margin="18" Padding="18" Background="{StaticResource PageBrush}" BorderBrush="{StaticResource BorderBrushApp}" BorderThickness="1" CornerRadius="16">
+        <Grid>
+        <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="*"/><RowDefinition Height="Auto"/></Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Margin="0,0,0,20">
+            <TextBlock Text="Оформить момент" FontWeight="Bold" FontSize="23"/>
+            <TextBlock x:Name="FileLabel" Foreground="{StaticResource MutedBrush}" FontSize="12" TextTrimming="CharacterEllipsis" Margin="0,7,0,0"/>
+        </StackPanel>
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+            <StackPanel>
+                <TextBlock Text="ИГРА" Foreground="{StaticResource MutedBrush}" FontSize="11" Margin="0,0,0,6"/>
+                <ComboBox x:Name="GamePicker" DisplayMemberPath="Name" SelectionChanged="GamePicker_SelectionChanged" Margin="0,0,0,17"/>
+                <TextBlock Text="ТИП МОМЕНТА / ПАПКА" Foreground="{StaticResource MutedBrush}" FontSize="11" Margin="0,0,0,6"/>
+                <ComboBox x:Name="CategoryPicker" Margin="0,0,0,17"/>
+                <TextBlock Text="ЦВЕТОВАЯ МЕТКА" Foreground="{StaticResource MutedBrush}" FontSize="11" Margin="0,0,0,6"/>
+                <ComboBox x:Name="ColorPicker" Margin="0,0,0,17"/>
+                <TextBlock Text="ИКОНКА ДЛЯ ФИЛЬТРАЦИИ" Foreground="{StaticResource MutedBrush}" FontSize="11" Margin="0,0,0,6"/>
+                <ComboBox x:Name="IconPicker" Margin="0,0,0,17"/>
+                <TextBlock Text="ДРУЗЬЯ В КЛИПЕ" Foreground="{StaticResource MutedBrush}" FontSize="11" Margin="0,0,0,8"/>
+                <Border Background="{StaticResource SurfaceBrush}" BorderBrush="{StaticResource BorderBrushApp}" BorderThickness="1" CornerRadius="9" Padding="12" Margin="0,0,0,12">
+                    <StackPanel x:Name="FriendsPanel"/>
+                </Border>
+                <CheckBox x:Name="MoveFile" Content="Переместить видео в выбранную папку" IsChecked="True"/>
+                <TextBlock Text="Метки и друзья хранятся отдельно от видео. Если снять галочку перемещения, изменятся только цвет, иконка и друзья (не игра и категория)." Foreground="{StaticResource MutedBrush}" FontSize="11" TextWrapping="Wrap" Margin="0,8,0,0"/>
+            </StackPanel>
+        </ScrollViewer>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,16,0,0">
+            <Button Style="{StaticResource PlainButton}" Content="Отмена" Click="Cancel_Click" Margin="0,0,9,0"/>
+            <Button Style="{StaticResource OrangeButton}" Content="Сохранить изменения" Click="Save_Click"/>
+        </StackPanel>
+    </Grid>
+    </Border>
+</Window>

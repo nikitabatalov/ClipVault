@@ -1,0 +1,43 @@
+<Window x:Class="ClipVault.ImportWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Добавление клипов · ClipVault" Width="560" Height="680" MinHeight="580" ResizeMode="CanResize"
+        WindowStartupLocation="CenterOwner" ShowInTaskbar="False"
+        Background="{StaticResource PageBrush}" Foreground="{StaticResource TextBrush}">
+    <Border Margin="18" Padding="18" Background="{StaticResource PageBrush}" BorderBrush="{StaticResource BorderBrushApp}" BorderThickness="1" CornerRadius="16">
+        <Grid>
+        <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="*"/><RowDefinition Height="Auto"/></Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Margin="0,0,0,20">
+            <TextBlock Text="Импорт видеомоментов" FontSize="23" FontWeight="Bold"/>
+            <TextBlock x:Name="FilesLabel" Foreground="{StaticResource MutedBrush}" FontSize="12" Margin="0,7,0,0"/>
+        </StackPanel>
+        <Grid Grid.Row="1" Margin="0,0,0,14">
+            <Grid.ColumnDefinitions><ColumnDefinition Width="*"/><ColumnDefinition Width="13"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0"><TextBlock Text="ИГРА" Foreground="{StaticResource MutedBrush}" FontSize="11" Margin="0,0,0,7"/><ComboBox x:Name="GamePicker" DisplayMemberPath="Name" SelectionChanged="GamePicker_SelectionChanged"/></StackPanel>
+            <StackPanel Grid.Column="2"><TextBlock Text="ТИП МОМЕНТА / ПАПКА" Foreground="{StaticResource MutedBrush}" FontSize="11" Margin="0,0,0,7"/><ComboBox x:Name="CategoryPicker"/></StackPanel>
+        </Grid>
+        <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto">
+            <StackPanel>
+                <TextBlock Text="ЦВЕТОВАЯ МЕТКА" Foreground="{StaticResource MutedBrush}" FontSize="11" Margin="0,0,0,7"/>
+                <ComboBox x:Name="ColorPicker" Margin="0,0,0,17"/>
+                <TextBlock Text="ИКОНКА" Foreground="{StaticResource MutedBrush}" FontSize="11" Margin="0,0,0,7"/>
+                <ComboBox x:Name="IconPicker" Margin="0,0,0,17"/>
+                <TextBlock Text="КТО ЕСТЬ НА ВИДЕО" Foreground="{StaticResource MutedBrush}" FontSize="11" Margin="0,0,0,8"/>
+                <Border Background="{StaticResource SurfaceBrush}" BorderBrush="{StaticResource BorderBrushApp}" BorderThickness="1" CornerRadius="8" Padding="13" Margin="0,0,0,16">
+                    <StackPanel x:Name="FriendsPanel"><TextBlock Foreground="{StaticResource MutedBrush}" FontSize="11" Text="Добавить друзей можно в разделе «Друзья»."/></StackPanel>
+                </Border>
+                <CheckBox x:Name="MoveFiles" Content="Переместить оригиналы вместо копирования" Foreground="White" Margin="0,0,0,8"/>
+                <TextBlock Text="Если перемещение выключено, исходные видео сохранятся на прежнем месте. Для файлов, уже находящихся в библиотеке, перемещение работает внутри папок ClipVault." TextWrapping="Wrap" Foreground="{StaticResource MutedBrush}" FontSize="11" LineHeight="17"/>
+            </StackPanel>
+        </ScrollViewer>
+        <Grid Grid.Row="3" Margin="0,17,0,0">
+            <Grid.ColumnDefinitions><ColumnDefinition Width="*"/><ColumnDefinition Width="Auto"/></Grid.ColumnDefinitions>
+            <TextBlock Text="Видео появятся в библиотеке сразу после импорта." Foreground="{StaticResource MutedBrush}" FontSize="11" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0,0,15,0"/>
+            <StackPanel Grid.Column="1" Orientation="Horizontal">
+                <Button Style="{StaticResource PlainButton}" Content="Отмена" Margin="0,0,9,0" Click="Cancel_Click"/>
+                <Button Style="{StaticResource OrangeButton}" Content="Импортировать" Click="Import_Click"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+    </Border>
+</Window>

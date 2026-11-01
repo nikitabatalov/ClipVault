@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AssemblyName>ClipVault</AssemblyName>
+    <RootNamespace>ClipVault</RootNamespace>
+    <ApplicationIcon>Assets\ClipVault.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="Assets\ClipVault.ico" />
+    <Resource Include="Assets\ClipVault.ico" />
+  </ItemGroup>
+</Project>
